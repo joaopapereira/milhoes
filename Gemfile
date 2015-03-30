@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'haml-rails'
+gem 'feedjira', git: 'https://github.com/feedjira/feedjira.git', branch:'faraday'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
