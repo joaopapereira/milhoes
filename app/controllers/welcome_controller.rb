@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
       "as_jackpot" => "Yes",
       "number_beats" => 2
     }
-    @responsibles = {}
+    @responsibles = Responsible.from_current_month
   end
 end

@@ -19,5 +19,5 @@
     %thead
         - @responsibles.each do |responsible|
             %tr
-                %td= responsible.date
-                %td= responsible.name
+                %td= responsible.month
+                %td= responsible.person.name
