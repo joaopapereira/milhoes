@@ -1,11 +1,23 @@
-<h1>Pagina do milhoes</h1>
-<table>
-    <thead>
-        <td>Proxima data</td>
-        <td>Jackpot?</td>
-        <td>Numero apostas</td>
-    </thead>
-    <tr>
-        <td><?=?></td>
-    </tr>
-</table>
+%h1 Pagina do milhoes
+%table
+    %thead
+        %tr
+            %td Proxima data
+            %td Jackpot?
+            %td Numero apostas
+    %tbody
+        %tr
+            %td= @next_beat["date"]
+            %td= @next_beat["as_jackpot"]
+            %td= @next_beat["number_beats"]
+
+%table
+    %thead
+        %tr
+            %td Mes
+            %td Responsavel
+    %thead
+        - @responsibles.each do |responsible|
+            %tr
+                %td= responsible.date
+                %td= responsible.name
