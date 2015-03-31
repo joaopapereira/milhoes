@@ -7,9 +7,9 @@
             %td Numero apostas
     %tbody
         %tr
-            %td= @next_beat["date"]
-            %td= @next_beat["as_jackpot"]
-            %td= @next_beat["number_beats"]
+            %td= @next_beat.next_game_date
+            %td= @next_beat.as_jackpot
+            %td= @next_beat.number_of_beats
 
 %table
     %thead

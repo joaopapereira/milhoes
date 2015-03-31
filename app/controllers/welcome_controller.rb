@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
       "as_jackpot" => "Yes",
       "number_beats" => 2
     }
+    @next_beat = Feed.all[0]
     @responsibles = Responsible.from_current_month
   end
 end
