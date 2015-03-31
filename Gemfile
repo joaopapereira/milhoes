@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem "gritter", "1.1.0"
+
 gem 'haml-rails'
 
 gem 'bootstrap-sass'
@@ -34,7 +36,7 @@ gem 'autoprefixer-rails'
 
 
 gem 'feedjira', git: 'https://github.com/feedjira/feedjira.git', branch:'faraday'
-group :development, :test do
+group  :test do
     gem 'rspec-rails', '~> 3.0.0'
     gem 'factory_girl_rails'
     gem 'database_cleaner'

@@ -1,5 +1,7 @@
 %div{:class => 'container', :id => 'main-container'}
     %div{:class=>'row'}
+        = button_to 'Update feed', {:controller => 'welcome', :action => 'update'}, {:class => 'btn btn-sm btn-success', :method => 'get'}
+    %div{:class=>'row'}
         %div{:class=>'col-md-8'}
             %table{:class => 'table table-hover'}
                 %thead

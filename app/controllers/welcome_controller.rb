@@ -8,4 +8,13 @@ class WelcomeController < ApplicationController
     @next_beat = Feed.all[0]
     @responsibles = Responsible.from_current_month
   end
+  def update
+    begin
+      Feed.read_feed
+      gflash :success => "Encontrou novos resultados no feed"
+    rescue ArgumentError => msg
+      gflash :error => msg
+    end
+    redirect_to action: "index"
+  end
 end
