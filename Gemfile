@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'haml-rails'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 gem 'feedjira', git: 'https://github.com/feedjira/feedjira.git', branch:'faraday'
 group :development, :test do
     gem 'rspec-rails', '~> 3.0.0'

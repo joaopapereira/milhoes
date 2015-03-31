@@ -1,23 +1,26 @@
-%h1 Pagina do milhoes
-%table
-    %thead
-        %tr
-            %td Proxima data
-            %td Jackpot?
-            %td Numero apostas
-    %tbody
-        %tr
-            %td= @next_beat.next_game_date
-            %td= @next_beat.as_jackpot
-            %td= @next_beat.number_of_beats
+%div{:class => 'container', :id => 'main-container'}
+    %div{:class=>'row'}
+        %div{:class=>'col-md-8'}
+            %table{:class => 'table table-hover'}
+                %thead
+                    %tr
+                        %td Mes
+                        %td Responsavel
+                %thead
+                    - @responsibles.each do |responsible|
+                        %tr
+                            %td= responsible.month
+                            %td= responsible.person.name
+        %div{:class=>'col-md-4'}
+            %table{:class => 'table table-hover'}
+                %thead
+                    %tr
+                        %td Proxima data
+                        %td Jackpot?
+                        %td Numero apostas
+                %tbody
+                    %tr
+                        %td= @next_beat.next_game_date
+                        %td= @next_beat.as_jackpot
+                        %td= @next_beat.number_of_beats
 
-%table
-    %thead
-        %tr
-            %td Mes
-            %td Responsavel
-    %thead
-        - @responsibles.each do |responsible|
-            %tr
-                %td= responsible.month
-                %td= responsible.person.name
