@@ -1,3 +1,4 @@
+require 'milhoes_exceptions'
 class WelcomeController < ApplicationController
   def index
     @next_beat = {
@@ -12,8 +13,12 @@ class WelcomeController < ApplicationController
     begin
       Feed.read_feed
       gflash :success => "Encontrou novos resultados no feed"
-    rescue ArgumentError => msg
-      gflash :error => msg
+    rescue FeedAlreadyExistsError => exception
+      gflash :notice => exception.msg
+    rescue FeedHasNoPrizeError => exception
+      gflash :warning => exception.msg
+    rescue NoFeedFoundError => exception
+      gflash :error => exception.msg
     end
     redirect_to action: "index"
   end
