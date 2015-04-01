@@ -20,9 +20,11 @@
                         %td Proxima data
                         %td Jackpot?
                         %td Numero apostas
+                        %td Premio
                 %tbody
                     %tr
                         %td= @next_beat.next_game_date
                         %td= @next_beat.as_jackpot
                         %td= @next_beat.number_of_beats
+                        %td= number_to_currency(@next_beat.prize, :unit => "€")
 
