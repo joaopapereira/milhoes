@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330221549) do
+ActiveRecord::Schema.define(version: 20150401173326) do
 
   create_table "feeds", force: true do |t|
     t.date     "next_game_date"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150330221549) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "playing_rules", force: true do |t|
