@@ -17,7 +17,6 @@ class Feed < ActiveRecord::Base
                 end
                 #Próximo Sorteio nº 026/2015, terça-feira dia 31/03/2015 - <b>Jackpot</b> - 1º prémio &euro;73.000.000,00<br><br>
                 #Chave do Sorteio nº 025/2015 -  2 30 32 39 44 +  6 10
-                puts data
                 
                 new_date = /, .* (\d?\d\/\d\d\/\d\d\d\d)/.match(data)[1].to_date
                 if my_feed.next_game_date == new_date then
