@@ -1,7 +1,7 @@
 class Responsible < ActiveRecord::Base
     belongs_to :person
     def self.from_current_month
-        self.where("month > ? ", (Date.today - 1.month) )
+        self.where("month > ? ", (Date.today - 1.month) ).order(:month)
     end
     
     def self.assign_responsible
