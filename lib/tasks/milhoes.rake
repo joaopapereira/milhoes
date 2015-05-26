@@ -5,7 +5,7 @@ namespace :milhoes do
   end
   
   task assign_responsible: :environment do
-    Feed.read_feed
+    Responsible.assign_responsible
   end
 
 end
