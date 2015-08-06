@@ -1,9 +1,8 @@
 language: ruby
-rvm: "2.2.0"
+rvm: "2.1.0"
 
+use: sudo
 before_install:
-  - rm -Rf /home/travis/.rvm/gems/ruby-2.2.0/cache/bundler/git/feedjira-*
-  - ls /home/travis/.rvm/gems/ruby-2.2.0/cache/bundler/git/
   - gem install bundler
 
 before_script:
