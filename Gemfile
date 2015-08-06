@@ -34,6 +34,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+gem 'postmark-rails'
 
 gem 'feedjira'
 group  :test do

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Person, :type => :model do
     describe "Person#next and Person#previous" do
         before(:all) do
-            create(:person, :name => "First Name")
-            create(:person, :name => "Second Name")
-            create(:person, :name => "Third Name")
+            create(:person, :name => "First Name", :email => "mail1@mail.com")
+            create(:person, :name => "Second Name", :email => "mail2@mail.com")
+            create(:person, :name => "Third Name", :email => "mail3@mail.com")
         end
         after(:all) do
             DatabaseCleaner.clean_with(:truncation)
@@ -66,6 +66,20 @@ RSpec.describe Person, :type => :model do
             expect(p2.position).to eq(1)
             expect(p3.position).to eq(2)
             expect(p4.position).to eq(3)
+        end
+    end
+    describe "Person#all_emails" do
+        before(:all) do
+            create(:person, :name => "First Name", :email => "mail1@mail.com")
+            create(:person, :name => "Second Name", :email => "mail2@mail.com")
+            create(:person, :name => "Third Name", :email => "mail3@mail.com")
+        end
+        it "get all mails" do
+            mails = Person.all_emails
+            expect(mails.length).to be 3
+            expect(mails).to include "mail1@mail.com"
+            expect(mails).to include "mail2@mail.com"
+            expect(mails).to include "mail3@mail.com"
         end
     end
 end

@@ -1,0 +1,19 @@
+Proxima data   
+= @next_beat.next_game_date
+
+
+Jackpot?
+= @next_beat.as_jackpot
+
+
+Numero apostas
+= @next_beat.number_of_beats
+
+Premio
+=number_to_currency(@next_beat.prize, :unit => "€")
+
+
+Apostas
+- @games.each do |game|
+    - game.bets.each do |bet|
+        = bet.to_s
