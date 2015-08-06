@@ -1,8 +1,11 @@
-%h1 
-%p Copy paste da pagina, mas so as apostas
+%h1 Adicionar as últimas apostas
+%p Copy paste da pagina, mas so as apostas como aparece na figura a baixo
+%p
+    =image_tag 'betView.png'
+%hr
 = form_tag :action => "insert" do |f|
     .p
-        %textarea{:name => "results"}
+        %textarea{:name => "results", :rows => 10, :cols => 40}
     .p
         %input{:type => "Submit",:class=>"btn"}
     
