@@ -2,9 +2,9 @@ language: ruby
 rvm: "2.2.0"
 
 before_install:
-  - rm -Rf /home/travis/.rvm/gems/ruby-2.2.0/cache/bundler/git/feedjira-272b56445a1b41a2e5477c8f18f9622b9ee8de6b
+  - rm -Rf /home/travis/.rvm/gems/ruby-2.2.0/cache/bundler/git/feedjira-*
+  - ls /home/travis/.rvm/gems/ruby-2.2.0/cache/bundler/git/
   - gem install bundler
-  - bundle clean
 
 before_script:
   - bundle exec rake db:create:all
