@@ -11,13 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401173326) do
+ActiveRecord::Schema.define(version: 20150806175353) do
+
+  create_table "bets", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "first"
+    t.integer  "second"
+    t.integer  "third"
+    t.integer  "forth"
+    t.integer  "fifth"
+    t.integer  "extra"
+    t.integer  "extra_one"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feeds", force: true do |t|
     t.date     "next_game_date"
     t.boolean  "as_jackpot"
     t.integer  "prize"
     t.text     "last_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "num"
+    t.date     "day"
+    t.integer  "prize"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

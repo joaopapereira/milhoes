@@ -3,6 +3,13 @@ class Person < ActiveRecord::Base
     before_destroy :reorder_destroy
     after_update { |person| person.reorder_update if person.position_changed? }
     has_many :responsible
+    def self.all_emails
+        mails = []
+        self.all.each do |user|
+            mails << user.email
+        end
+        mails
+    end
     def next
         all_persons = Person.order("position ASC").order("name ASC")
         return all_persons.first if self == all_persons.last
