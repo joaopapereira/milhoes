@@ -4,6 +4,8 @@ rvm: "2.1.1"
 before_install:
   - gem install bundler
 
+install: bundle install --retry=3 --jobs=3 --no-cache
+
 before_script:
   - bundle exec rake db:create:all
   - bundle exec rake db:migrate
