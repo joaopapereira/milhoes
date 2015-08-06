@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'game/add'
+  
+  post 'game/insert'
+
   get 'welcome/index'
   
   get 'welcome/update'

@@ -1,0 +1,8 @@
+%h1 
+%p Copy paste da pagina, mas so as apostas
+= form_tag :action => "insert" do |f|
+    .p
+        %textarea{:name => "results"}
+    .p
+        %input{:type => "Submit",:class=>"btn"}
+    
