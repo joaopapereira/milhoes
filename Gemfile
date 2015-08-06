@@ -35,7 +35,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 
-gem 'feedjira', git: 'https://github.com/feedjira/feedjira.git', branch:'faraday'
+gem 'feedjira'
 group  :test do
     gem 'rspec-rails', '~> 3.0.0'
     gem 'factory_girl_rails'
