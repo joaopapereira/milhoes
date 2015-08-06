@@ -1,0 +1,23 @@
+%h2 Foi feita nova aposta
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Proxima data
+            %td Jackpot?
+            %td Numero apostas
+            %td Premio
+    %tbody
+        %tr
+            %td= @next_beat.next_game_date
+            %td= @next_beat.as_jackpot
+            %td= @next_beat.number_of_beats
+            %td= number_to_currency(@next_beat.prize, :unit => "€")
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Apostas
+    %tbody
+        - @games.each do |game|
+            - game.bets.each do |bet|
+                %tr
+                    %td= bet.to_s

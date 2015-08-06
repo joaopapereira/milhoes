@@ -9,6 +9,7 @@ class Game < ActiveRecord::Base
             unless game.save
                 return -1
             end
+            UserMailer.bet_made(game).deliver
             total_added += 1
         end
         return total_added

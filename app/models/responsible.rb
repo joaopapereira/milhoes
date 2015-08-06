@@ -4,6 +4,10 @@ class Responsible < ActiveRecord::Base
         self.where("month > ? ", (Date.today - 1.month) ).order(:month)
     end
     
+    def self.this_month
+        self.from_current_month.first
+    end
+    
     def self.assign_responsible
         while true do
             all_resp = self.order("month ASC")
