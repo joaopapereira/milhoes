@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "me@jpereira.co.uk"
   def bet_made game
     @next_beat = {
       "date" => "01-01-2001",
@@ -11,7 +11,6 @@ class UserMailer < ActionMailer::Base
     mail(
      :subject => "Nova aposta para o dia #{game.day}",
      :to  => Person.all_emails,
-     :from => Responsible.this_month.person.email
     )
   end
 end

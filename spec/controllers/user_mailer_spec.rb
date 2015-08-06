@@ -25,7 +25,6 @@ describe UserMailer, :type => :controller do
       expect(last_delivery.to).to include "mail1@mail.com"
       expect(last_delivery.to).to include "mail2@mail.com"
       expect(last_delivery.to).to include "mail3@mail.com"
-      expect(last_delivery.from).equal? "mail1@mail.com"
       expect(last_delivery.subject).equal? "Nova aposta para o dia #{Date.today}"
     end
 
