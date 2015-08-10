@@ -45,5 +45,11 @@ RSpec.describe Bet, :type => :model do
               expect(subject.extra_one).to be 22222
           }
       end
+      describe "#compare_with" do
+          it {
+              expect(subject.parse "1 2 3 4 5 + 6 7").to be true
+              expect(subject.compare_with "1 3 2 4 5 + 6 8").to eq("<b>1</b> <b>2</b> <b>3</b> <b>4</b> <b>5</b> + <b>6</b> 7")
+          }
+      end
   end
 end

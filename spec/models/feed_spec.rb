@@ -20,6 +20,7 @@ RSpec.describe Feed, :type => :model do
         expect(Feed.all.first.prize).to eq(73000000)
         expect(Feed.all.first.last_key).to eq(" 2 30 32 39 44 +  6 10")
         expect(Feed.all.first.next_game_date).to eq("31/03/2015".to_date)
+        # 025/2015
     end
   end
   describe "feed#no_jackpot" do
@@ -63,6 +64,23 @@ RSpec.describe Feed, :type => :model do
           rescue FeedAlreadyExistsError
           end
         end
+    end
+  end
+  describe "feed#game_exists" do
+    before(:each) do
+      FactoryGirl.create :game, {:num => "025/2015"}
+      VCR.use_cassette('feeds') do
+        Feed.read_feed
+      end
+    end
+    it "Correct values" do
+      expect(Feed.all.first.as_jackpot).to eq(true)
+      expect(Feed.all.first.prize).to eq(73000000)
+      expect(Feed.all.first.last_key).to eq(" 2 30 32 39 44 +  6 10")
+      expect(Feed.all.first.next_game_date).to eq("31/03/2015".to_date)
+      expect(Game.all.length).to eq 1
+      expect(Game.find_by_num("025/2015").winner_combination).to eq("2 30 32 39 44 +  6 10")
+      # 025/2015
     end
   end
 end

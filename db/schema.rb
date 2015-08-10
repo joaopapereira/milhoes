@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150806175353) do
+=======
+ActiveRecord::Schema.define(version: 20150810142405) do
+>>>>>>> test
 
   create_table "bets", force: true do |t|
     t.integer  "game_id"
@@ -33,6 +37,16 @@ ActiveRecord::Schema.define(version: 20150806175353) do
     t.text     "last_key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_game_num"
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "num"
+    t.date     "day"
+    t.integer  "prize"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "winner_combination"
   end
 
   create_table "games", force: true do |t|
