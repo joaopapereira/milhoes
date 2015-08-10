@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
     @next_beat = Feed.all[0]
     @responsibles = Responsible.from_current_month
     @games = Game.find_by_date @next_beat.next_game_date
+    @last_game = Game.find_by_num @next_beat.last_game_num
   end
   def update
     begin

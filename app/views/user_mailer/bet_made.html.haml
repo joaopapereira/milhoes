@@ -21,3 +21,19 @@
             - game.bets.each do |bet|
                 %tr
                     %td= bet.to_s
+
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Ultimo jogo
+            %td= "Certas(#{@last_game.winner_combination})"
+    %tbody
+        - if @last_game == nil
+            %tr
+                %td Ninguem jogou a semana passada
+        - else
+            - @last_game.bets.each do |bet|
+                %tr
+                    %td= bet.compare_with(@last_game.winner_combination).html_safe
+                    %td= bet.number_correct(@last_game.winner_combination)
+

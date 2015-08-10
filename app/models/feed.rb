@@ -32,8 +32,16 @@ class Feed < ActiveRecord::Base
                     raise FeedHasNoPrizeError.new
                 end
                 my_feed.prize = /&euro;((\d|\.)+),00/.match(data)[1].gsub(/\./, '').to_i
-                my_feed.last_key =  /\d+\/\d+ - ([\d \+]+)/.match(data)[1]
+                game_and_key = /(\d+\/\d+) - ([\d \+]+)/.match(data)
+                my_feed.last_key =  game_and_key[2]
+                my_feed.last_game_num = game_and_key[1]
                 my_feed.save
+                game = Game.find_by_num my_feed.last_game_num
+                return true if game == nil
+                if game.instance_of? Game
+                    game.winner_combination = my_feed.last_key.strip
+                    game.save
+                end
                 
                 return true
             end

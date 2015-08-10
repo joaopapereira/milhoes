@@ -8,6 +8,7 @@ class UserMailer < ActionMailer::Base
     }
     @next_beat = Feed.all[0]
     @games = Game.find_by_date game.day
+    @last_game = Game.find_by_num @next_beat.last_game_num
     mail(
      :subject => "Nova aposta para o dia #{game.day}",
      :to  => Person.all_emails,

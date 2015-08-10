@@ -6,7 +6,8 @@ RSpec.describe Game, :type => :model do
         FactoryGirl.create(:person, :name => "First Name", :email => "mail1@mail.com")
         FactoryGirl.create(:person, :name => "Second Name", :email => "mail2@mail.com")
         FactoryGirl.create(:person, :name => "Third Name", :email => "mail3@mail.com")
-        FactoryGirl.create :feed
+        FactoryGirl.create(:game, :num => "062/2015", :winner_combination => "24 39 42 45 49 + 4 5")
+        FactoryGirl.create(:feed, :last_game_num => "062/2015")
         Responsible.assign_responsible
     end
     after(:all) do

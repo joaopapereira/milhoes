@@ -2,7 +2,6 @@ class GameController < ApplicationController
   def add
   end
   def insert
-    puts params
     added = Game.create_games params[:results]
     if added > 0
       gflash :success => "A total of #{added} games were added with success"
