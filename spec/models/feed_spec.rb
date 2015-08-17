@@ -36,7 +36,7 @@ RSpec.describe Feed, :type => :model do
     it "no change" do
         expect(Feed.all.first.as_jackpot).to eq(false)
         expect(Feed.all.first.prize).to eq(15000000)
-        expect(Feed.all.first.last_key).to eq("1")
+        expect(Feed.all.first.last_key).to eq(" 8 20 24 28 49 +  8 9")
         expect(Feed.all.first.next_game_date).to eq("03/04/2015".to_date)
     end
   end
