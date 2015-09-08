@@ -40,7 +40,10 @@
                 %thead
                     %tr
                         %td Ultimo jogo
-                        %td= "Certas(#{@last_game.winner_combination})"
+                        - if @last_game == nil
+                            %td= "Ninguem jogou para o ultimo jogo"
+                        - else
+                            %td= "Certas(#{@last_game.winner_combination})"
                 %tbody
                     - if @last_game == nil
                         %tr
