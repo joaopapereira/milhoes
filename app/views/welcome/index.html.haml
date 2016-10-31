@@ -14,6 +14,7 @@
                             %td= responsible.month.strftime("%B %Y")
                             %td= responsible.person.name
         %div{:class=>'col-md-5'}
+            %h3 EuroMilhoes
             %table{:class => 'table table-hover'}
                 %thead
                     %tr
@@ -53,3 +54,39 @@
                             %tr
                                 %td= bet.compare_with(@last_game.winner_combination).html_safe
                                 %td= bet.number_correct(@last_game.winner_combination)
+            %h3 M1lhoes
+            %table{:class => 'table table-hover'}
+                %thead
+                    %tr
+                        %td Proxima data
+                        %td Premio
+                %tbody
+                    %tr
+                        %td= @next_bet_m1lhao.next_game_date
+                        %td= number_to_currency(@next_bet_m1lhao.prize, :unit => "€")
+            %table{:class => 'table table-hover'}
+                %thead
+                    %tr
+                        %td Apostas
+                %tbody
+                    - @games_m1lhao.each do |game|
+                        - games_m1lhao.bets.each do |bet|
+                            %tr
+                                %td= bet.to_s
+            %table{:class => 'table table-hover'}
+                %thead
+                    %tr
+                        %td Ultimo jogo
+                        - if @last_game_m1lhao == nil
+                            %td= "Ninguem jogou para o ultimo jogo"
+                        - else
+                            %td= "Certas(#{@last_game_m1lhao.winner_combination})"
+                %tbody
+                    - if @last_game_m1lhao == nil
+                        %tr
+                            %td Ninguem jogou a semana passada
+                    - else
+                        - @last_game_m1lhao.bets.each do |bet|
+                            %tr
+                                %td= bet.compare_with(@last_game_m1lhao.winner_combination).html_safe
+                                %td= bet.number_correct(@last_game_m1lhao.winner_combination)
