@@ -4,6 +4,9 @@ class Feed < ActiveRecord::Base
         return nil if rule.size == 0
         rule[0].number_beats
     end
+    scope m1lhao, -> {where("last_game_num LIKE :prefix", prefix: "M-%")}
+    scope euromilhoes, -> {where("last_game_num LIKE :prefix", prefix: "E-%")}
+    
     def self.read_feed
         feed_found = false
         feed = Feedjira::Feed.fetch_and_parse("http://www.jogossantacasa.pt/web/SCRss/rssFeedJackpots")
@@ -11,7 +14,7 @@ class Feed < ActiveRecord::Base
             if "Euromilhões" == entry.title then
                 feed_found = true
                 data = entry.summary
-                my_feed = Feed.where("last_game_num LIKE :prefix", prefix: "E-%")
+                my_feed = Feed.euromilhoes
                 if my_feed.size == 0 then
                     my_feed = Feed.new
                 else
@@ -48,7 +51,7 @@ class Feed < ActiveRecord::Base
             elsif 'M1lhão' == entry.title then
                 feed_found = true
                 data = entry.summary
-                my_feed = Feed.where("last_game_num LIKE :prefix", prefix: "M-%")
+                my_feed = Feed.m1lhao
                 if my_feed.size == 0 then
                     my_feed = Feed.new
                 else
