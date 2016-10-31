@@ -4,8 +4,8 @@ class Feed < ActiveRecord::Base
         return nil if rule.size == 0
         rule[0].number_beats
     end
-    scope m1lhao, -> {where("last_game_num LIKE :prefix", prefix: "M-%")}
-    scope euromilhoes, -> {where("last_game_num LIKE :prefix", prefix: "E-%")}
+    scope :m1lhao, -> {where("last_game_num LIKE :prefix", prefix: "M-%")}
+    scope :euromilhoes, -> {where("last_game_num LIKE :prefix", prefix: "E-%")}
     
     def self.read_feed
         feed_found = false
