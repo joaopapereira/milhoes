@@ -2,7 +2,10 @@ class GameController < ApplicationController
   def add
   end
   def insert
-    added = Game.create_games params[:results]
+    added = Game.create_games "#{params[:results]}
+    
+    #{params[:results_m1lhao]}
+    "
     if added > 0
       gflash :success => "A total of #{added} games were added with success"
       redirect_to root_path

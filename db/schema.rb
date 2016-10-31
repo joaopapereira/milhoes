@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150806175353) do
-=======
-ActiveRecord::Schema.define(version: 20150810142405) do
->>>>>>> test
+ActiveRecord::Schema.define(version: 20161031201946) do
 
   create_table "bets", force: true do |t|
     t.integer  "game_id"
@@ -28,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150810142405) do
     t.integer  "extra_one"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bet"
   end
 
   create_table "feeds", force: true do |t|
@@ -47,14 +44,6 @@ ActiveRecord::Schema.define(version: 20150810142405) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "winner_combination"
-  end
-
-  create_table "games", force: true do |t|
-    t.string   "num"
-    t.date     "day"
-    t.integer  "prize"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|

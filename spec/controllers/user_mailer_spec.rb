@@ -8,8 +8,10 @@ describe UserMailer, :type => :controller do
         FactoryGirl.create(:person, :name => "First Name", :email => "mail1@mail.com")
         FactoryGirl.create(:person, :name => "Second Name", :email => "mail2@mail.com")
         FactoryGirl.create(:person, :name => "Third Name", :email => "mail3@mail.com")
-        FactoryGirl.create(:game, :num => "123/1234")
-        FactoryGirl.create(:feed, :last_game_num => "123/1234")
+        FactoryGirl.create(:game, :num => "M-123/1234")
+        FactoryGirl.create(:game, :num => "E-123/1234")
+        FactoryGirl.create(:feed, :last_game_num => "M-123/1234")
+        FactoryGirl.create(:feed, :last_game_num => "E-123/1234")
         Responsible.assign_responsible
     end
     after(:all) do

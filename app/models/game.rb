@@ -40,7 +40,13 @@ class Game < ActiveRecord::Base
                 bet = Bet.new 
                 bet.parse line
                 game.bets << bet
-            elsif line.match(/€ [\d,]+/)
+                game.num = "E-#{game.num}" unless game.num.start_with?("E-")
+            elsif line.match(Bet.m1lhoes_regex_line)
+                bet = Bet.new 
+                bet.parse line
+                game.bets << bet
+                game.num = "M-#{game.num}" unless game.num.start_with?("M-")
+            elsif line.match(/€\s*[\d,]+/)
                 new_game = true
                 games << game
             end

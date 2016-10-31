@@ -1,4 +1,6 @@
-%h2 Foi feita nova aposta
+%h2 Nova aposta realizada
+
+%h3 EuroMilhoes
 %table{:class => 'table table-hover'}
     %thead
         %tr
@@ -8,10 +10,10 @@
             %td Premio
     %tbody
         %tr
-            %td= @next_beat.next_game_date
-            %td= @next_beat.as_jackpot
-            %td= @next_beat.number_of_beats
-            %td= number_to_currency(@next_beat.prize, :unit => "€")
+            %td= @next_beat_euromilhoes.next_game_date
+            %td= @next_beat_euromilhoes.as_jackpot
+            %td= @next_beat_euromilhoes.number_of_beats
+            %td= number_to_currency(@next_beat_euromilhoes.prize, :unit => "€")
 %table{:class => 'table table-hover'}
     %thead
         %tr
@@ -21,12 +23,14 @@
             - game.bets.each do |bet|
                 %tr
                     %td= bet.to_s
-
 %table{:class => 'table table-hover'}
     %thead
         %tr
             %td Ultimo jogo
-            %td= "Certas(#{@last_game.winner_combination})"
+            - if @last_game == nil
+                %td= "Ninguem jogou para o ultimo jogo"
+            - else
+                %td= "Certas(#{@last_game.winner_combination})"
     %tbody
         - if @last_game == nil
             %tr
@@ -36,4 +40,39 @@
                 %tr
                     %td= bet.compare_with(@last_game.winner_combination).html_safe
                     %td= bet.number_correct(@last_game.winner_combination)
-
+%h3 M1lhoes
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Proxima data
+            %td Premio
+    %tbody
+        %tr
+            %td= @next_bet_m1lhao.next_game_date
+            %td= number_to_currency(@next_bet_m1lhao.prize, :unit => "€")
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Apostas
+    %tbody
+        - @games_m1lhao.each do |game|
+            - @games_m1lhao.first.bets.each do |bet|
+                %tr
+                    %td= bet.to_s
+%table{:class => 'table table-hover'}
+    %thead
+        %tr
+            %td Ultimo jogo
+            - if @last_game_m1lhao == nil
+                %td= "Ninguem jogou para o ultimo jogo"
+            - else
+                %td= "Certas(#{@last_game_m1lhao.winner_combination})"
+    %tbody
+        - if @last_game_m1lhao == nil
+            %tr
+                %td Ninguem jogou a semana passada
+        - else
+            - @last_game_m1lhao.bets.each do |bet|
+                %tr
+                    %td= bet.compare_with(@last_game_m1lhao.winner_combination).html_safe
+                    %td= bet.number_correct(@last_game_m1lhao.winner_combination)
