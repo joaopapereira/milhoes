@@ -14,7 +14,7 @@ class Bet < ActiveRecord::Base
     def compare_with combination
         if self.first == -1
             if combination.nil?
-                output = to_bold(self.bet, [combination.strip])
+                output = to_bold(self.bet, [])
             else
                 output = to_bold(self.bet, [combination.strip])
             end
