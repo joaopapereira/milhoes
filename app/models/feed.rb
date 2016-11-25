@@ -1,3 +1,5 @@
+
+require 'milhoes_exceptions'
 class Feed < ActiveRecord::Base
     def number_of_beats
         rule = PlayingRules.find_by_prize prize
